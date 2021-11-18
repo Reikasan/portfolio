@@ -1,0 +1,221 @@
+@media screen and (max-width: 1200px) {
+    .pc {
+        right: 90px;
+    }
+    .used-skills {
+        top: 30px;
+    }
+    .used-skills .btn-container {
+        margin: 40px 0;
+    }
+    .used-skills a {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    nav {
+        padding: 25px;
+    }
+    nav #logo a {
+        font-size: 55px;
+    }
+} 
+
+@media screen and (max-width: 1100px) {
+    section {
+        padding: 50px 0 20px;
+    }
+    .site-details {
+        width: 60vw;
+        margin-bottom: 100px;
+    }
+
+    .site-details:last-child {
+        margin-bottom: 50px;
+    }
+    .used-skills {
+        width: 50vw;
+        top: 100px;
+        left: 5vw;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .used-skills a {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    nav {
+        display: block;
+        height: auto;
+    }
+    nav #logo {
+        text-align: center;
+    }
+    #navbar-items {
+        width: auto;
+        padding-left: 0;
+    }
+    #navbar-items li {
+        height: auto;
+    }
+    #navbar-items a {
+        margin-top: 10px;
+    }
+    .pc {
+        left: calc(50vw - 223px);
+    }
+    section {
+        padding: 50px;
+    }
+    .used-skills {
+        top: 50px;
+    }
+    .btn-container {
+        display: inline-block;
+    }
+    footer .brand {
+        font-size: 45px;
+    }
+    .social-icon a {
+        margin: 10px;
+    }
+    .hand-icon {
+        width: 80px;
+        height: 80px;
+    }
+    .hand-icon p {
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .pc {
+        transform: scale(0.8);
+    }
+    div.reika {
+        width: 80%;
+    }
+    div.reika .section-lead {
+        line-height: 1.6;
+    }
+    .site-details {
+        width: 80vw;
+    }
+    .used-skills {
+        width: 70vw;
+    }
+    .form-group {
+        width: 100%;
+    }
+    footer {
+        padding: 20px;
+    }
+    .footerContainer {
+        display: block;
+        text-align: center;
+    }
+    footer .brand {
+        display: block;
+        width: 100%;
+    }
+    footer .social-icon {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    #confirmationModal, #thanksModal {
+        width: 100%;
+        left: unset;
+    }
+    #confirmationModal .btn-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    #confirmationModal .btn-container button {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    nav #logo a {
+        font-size: 50px;
+    }
+    #navbar-items li {
+        font-size: 22px;
+    }
+    .pc {
+        transform: scale(.7);
+    }
+    .hand-icon {
+        width: 50px;
+        height: 50px;
+        padding: 3px;
+    }
+    .hand-icon i {
+        font-size: 25px;
+    }
+    .hand-icon p {
+        font-size: 10px;
+    }
+    section {
+        padding: 50px 20px;
+    }
+    .site-details {
+        width: 100%;
+    }
+    .used-skills {
+        width: 100%;
+        left: 0;
+        top: 0px;
+        padding: 10px;
+    }
+    .btn-container {
+        margin: 20px !important;
+    }
+    footer .brand {
+        font-size: 40px;
+    }
+    footer .social-icon {
+        font-size: 30px;
+    }
+    footer small {
+        margin: 20px 20px 0;
+    }
+    #confirmationModal {
+        top: 20px;
+    }
+    .modal-container {
+        padding: 20px 10px;
+        overflow: auto;
+    }
+    #confirmationModal .controls input, #confirmationModal textarea {
+        width: 300px;
+    }
+} /* end of 500px */
+
+@media screen and (max-width: 400px) {
+    nav #logo a {
+        line-height: .8;
+    }
+    .pc {
+        top: 0;
+        left: calc(50vw - 205px);
+    }
+    section {
+        padding: 20px;
+    }
+    .used-skills p {
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .pc {
+        transform: scale(0.6);
+        left: calc(50vw - 190px);
+    }
+    
+} 
