@@ -1,6 +1,16 @@
 <!doctype html>
 <html>
-<head>
+<head prefix="og: http://ogp.me/ns#">
+    <meta property="og:url" content="https://reikaakuzawa.com/">
+    <meta property="og:title" content="Reika's Portfolio Site"/>
+    <meta property="og:image" content="https://reikaakuzawa.com/img/portfolio_screen.jpg"/>
+    <meta property="og:image:alt" content="screenshot">
+    <meta property="og:description" content="Reika Akuzawa is a Fullstack Web developer based in Berlin."/>
+    <meta property="og:type" content="website"/>
+
+    <meta property="fb:app_id" content="APP_ID"/>
+    
+    <meta name="description" content="This is a Web developer Reika Akuzawa's Portfolio site.">
     <meta charset="utf-8">
     <meta http-equiv="X-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
