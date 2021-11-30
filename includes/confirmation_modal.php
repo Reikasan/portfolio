@@ -1,16 +1,47 @@
 <?php 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+?>
+
+<?php  require './vendor/autoload.php'; ?>
+
+
+<?php 
     if(isset($_POST['submit'])) {
-        $toWebmailer = "info@reikaakuzawa.com";
-        $subject = "Inquiery from Website";
-        $body = "Name: " .$_POST['name'];
-        $body .= "Comments: " .$_POST['comments'];
-        $body = str_replace("\n.", "\n..", $body);
-        $body = wordwrap($body, 70, "\r\n");
-        $header = "From: " .$_POST['email'];
+        $email = $_POST['email'];
+        $sender = $_POST['name'];
+        $body = nl2br($_POST['comments']);
 
-        mail($toWebmailer, $subject, $body, $header);
+        /* CONFIGURE PHPMAILER */
+        $mail = new PHPMailer(true);
 
-        header("Location: index.php?thanks");
+        // server settings
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                     
+        $mail->isSMTP(true);                                         
+        $mail->Host       = Config::SMTP_HOST;                  
+        $mail->SMTPAuth   = true;                          
+        $mail->Username   = Config::SMTP_USER;                     
+        $mail->Password   = Config::SMTP_PASSWORD;                              
+        $mail->SMTPSecure = 'tls';            
+        $mail->Port       = Config::SMTP_PORT;   
+        $mail->CharSet = "UTF-8";
+        $mail->Encoding = 'base64';                                 
+
+        //Recipients
+        $mail->setFrom($email, $sender);
+        $mail->addAddress('EMAIL ADDRESS', 'NAME');  
+        
+        //Content
+        $mail->isHTML(true);                                 
+        $mail->Subject = 'Inquiery from Website';
+        $mail->Body    = $body;
+        
+        if($mail->send()) {
+            header("Location: index/thanks");
+        } 
+        
     }
 
 ?>
