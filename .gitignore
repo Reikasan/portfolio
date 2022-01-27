@@ -1,6 +1,10 @@
 Config_local.php
-img/*
-vendor/*
+
+img/
+
+vendor/
+
 composer.json
+
 composer.lock
 
