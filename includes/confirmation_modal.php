@@ -31,7 +31,7 @@ use PHPMailer\PHPMailer\Exception;
 
         //Recipients
         $mail->setFrom($email, $sender);
-        $mail->addAddress('EMAIL ADDRESS', 'NAME');  
+        $mail->addAddress(Config::RECIPIENT_ADDRESS, Config::RECIPIENT_NAME);  
         
         //Content
         $mail->isHTML(true);                                 
@@ -39,14 +39,10 @@ use PHPMailer\PHPMailer\Exception;
         $mail->Body    = $body;
         
         if($mail->send()) {
-            if(!isset($_SESSION['lang']) || empty($_SESSION['lang'])) {
-                $thanksModalUrl = "index.php?thanks";
-            } else {
-                $thanksModalUrl = "index.php".$_SESSION['lang']."&thanks";
-            }
-            
-            header("Location: ".$thanksModalUrl);
-        } 
+            header("Location: index.php?thanks");
+        } else {
+            echo "couldn't send";
+        }
         
     }
 

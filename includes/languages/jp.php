@@ -52,5 +52,5 @@ const BACK_TO_FORM = "フォームに戻る";
 
 /* THANKS MODAL */
 const THANKS = "Thank You!";
-const THANKS_MESSAGE = "お問い合わせありがとうございます。３日以内に返信がない場合はお手数ですが、もう一度ご連絡いただけますでしょうか。";
+const THANKS_MESSAGE = "お問い合わせありがとうございます。<br>３日以内に返信がない場合はお手数ですが、もう一度ご連絡いただけますでしょうか。";
 const CLOSE = "閉じる";
