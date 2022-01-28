@@ -1,3 +1,8 @@
+/* CHANGE PAGE LANGUAGE */
+function changeLanguage() {
+    document.getElementById('languageForm').submit();
+}
+
 /* PAGE TOP ICON */
 // scroll down and show the icon
 var icon = document.getElementById("pageTopIcon");
@@ -191,7 +196,7 @@ submitBtn.addEventListener('click', (e) => {
         checkEmptyInput(comments);
 
         // show error message
-        errorMessage.innerHTML = "Please fill in all input area";
+        errorMessage.innerHTML = "<?= ERROR_MESSAGE; ?>";
         errorMessage.classList.add('show');
     
     }

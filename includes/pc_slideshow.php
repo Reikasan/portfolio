@@ -27,7 +27,7 @@
                                     <i class="fas fa-play"></i>
                                 </div>
                                 <a type="button" href="https://sample-bar.reikaakuzawa.com/" class="site-link"  target="_blank" rel="noopener">
-                                    Visit the Site
+                                    <?= CHECK_THE_SITE_BTN; ?>
                                 </a>
                             </div>                            
                         </div>
@@ -42,7 +42,7 @@
                                     <i class="fas fa-play"></i>
                                 </div>
                                 <a type="button" href="https://reservation-manager.reikaakuzawa.com/" class="site-link"  target="_blank" rel="noopener">
-                                    Visit the Site
+                                    <?= CHECK_THE_SITE_BTN; ?>  
                                 </a>
                             </div>                            
                         </div>
@@ -57,7 +57,7 @@
                                     <i class="fas fa-play"></i>
                                 </div>
                                 <a type="button" href="https://sample-login.reikaakuzawa.com/" class="site-link"  target="_blank" rel="noopener">
-                                    Visit the Site
+                                    <?= CHECK_THE_SITE_BTN; ?>
                                 </a>
                             </div>                            
                         </div>
@@ -72,7 +72,7 @@
                                     <i class="fas fa-play"></i>
                                 </div>
                                 <a type="button" href="https://todo-list.reikaakuzawa.com/" class="site-link"  target="_blank" rel="noopener">
-                                    Visit the Site
+                                    <?= CHECK_THE_SITE_BTN; ?>
                                 </a>
                             </div>                            
                         </div>

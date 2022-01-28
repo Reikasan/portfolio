@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head prefix="og: http://ogp.me/ns#">
+    <!-- OGP setting --> 
     <meta property="og:url" content="https://reikaakuzawa.com/">
     <meta property="og:title" content="Reika's Portfolio Site"/>
     <meta property="og:image" content="https://reikaakuzawa.com/img/portfolio_screen.jpg"/>

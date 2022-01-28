@@ -1,5 +1,25 @@
 <?php include "includes/header.php"; ?>
 <?php ob_start(); ?>
+<?php session_start(); ?>
+
+<!-- Setting Language Variables -->
+<?php
+    if(isset($_GET['lang']) && !empty($_GET['lang'])) {
+        $_SESSION['lang'] = $_GET['lang'];
+
+        if(isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
+            echo "<script type='text/javascript>location.reload();</script>";
+        }
+
+    }
+
+    if(isset($_SESSION['lang'])) {
+        include "includes/languages/".$_SESSION['lang'].".php";
+    } else {
+        include "includes/languages/en.php";
+    }
+
+?>
 
 <body>
     <!-- THANKS MODAL -->
@@ -30,13 +50,10 @@
         <!-- section  -->
         <section id="about">
             <div>
-                <h1 class="section-title">About Reika</h1>
+                <h1 class="section-title"><?= ABOUT; ?></h1>
                 <div class="reika">
-                    <img src="img/self-portrait-7-sq.jpg" alt="">
-                    <p class="section-lead">
-                        Reika is a full-stack web developer based in Berlin. Since 2018 she has started to learn programming and continue to improve her knowledge. 
-                        She masters <span>HTML</span>, <span>CSS</span>, <span>Javascript</span> and <span>PHP</span> and she is also interested in other technologies and new areas such as app development.  
-                    </p>
+                    <img src="img/self-portrait-7-sq.jpg" alt="<?= PORTRAIT_ALT; ?>">
+                    <p class="section-lead"><?= ABOUT_REIKA; ?></p>
                 </div>
                 
             </div>   
@@ -44,63 +61,61 @@
         
         <section id="works">
             <div>
-                <h1 class="section-title">Works</h1>
-                <p class="section-lead">
-                    All original Projects. You can check used Languages and off course real Website.
-                </p>
+                <h1 class="section-title"><?= PROJECTS; ?></h1>
+                <p class="section-lead"><?= WORK_LEAD; ?></p>
             </div> 
             <div class="site-container">
                 <div class="site-details">
-                    <h3 class="site-description">Sample Bar Website with Web Reservation system</h3>
-                    <p class="additional-comment">Linked with Reservation Management Systemsite.</p>
+                    <h3 class="site-description"><?= BAR_TITLE; ?></h3>
+                    <p class="additional-comment"><?= BAR_COMMENT; ?></p>
                     <div class="site-link">
-                        <img class="screenshot" src="img/sample-bar-screen.jpg" alt="sample bar website's screenshot">
+                        <img class="screenshot" src="img/sample-bar-screen.jpg" alt="<?= BAR_SCREENSHOT_ALT; ?>">
                         <div class="used-skills">
-                            <p>Build with <span>HTML</span>, <span>CSS</span>, <span>Javascript</span> and <span>PHP</span></p>
+                            <p><?= BAR_USEDSKILL; ?></p>
                             <div class="btn-container">
-                                <a type="button" href="https://sample-bar.reikaakuzawa.com/" target="_blank" rel="noopener">Check the Site</a>
-                                <a type="button" href="https://github.com/Reikasan/sample_bar" target="_blank" rel="noopener">Check the Code</a>
+                                <a type="button" href="https://sample-bar.reikaakuzawa.com/" target="_blank" rel="noopener"><?= CHECK_THE_SITE_BTN; ?></a>
+                                <a type="button" href="https://github.com/Reikasan/sample_bar" target="_blank" rel="noopener"><?= CHECK_THE_CODE_BTN; ?></a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="site-details">
-                    <h3 class="site-description">Sample Reservation Management Systemsite</h3>
-                    <p class="additional-comment">Linked with Bar Website.</p>
+                    <h3 class="site-description"><?= RM_TITLE; ?></h3>
+                    <p class="additional-comment"><?= RM_COMMENT; ?></p>
                     <div class="site-link">
-                        <img class="screenshot" src="img/reservation_manager_screenshot.jpg" alt="sample Reservation Manager website's screenshot">
+                        <img class="screenshot" src="img/reservation_manager_screenshot.jpg" alt="<?= RM_SCREENSHOT_ALT; ?>">
                         <div class="used-skills">
-                            <p>Build with <span>HTML</span>, <span>CSS</span>, <span>Javascript</span> and <span>PHP</span></p>
+                            <p><?= RM_USEDSKILL; ?></p>
                             <div class="btn-container">
-                                <a type="button" href="https://reservation-manager.reikaakuzawa.com/" target="_blank" rel="noopener">Check the Site</a>
-                                <a type="button" href="https://github.com/Reikasan/reservation_manager" target="_blank" rel="noopener">Check the Code</a>
+                                <a type="button" href="https://reservation-manager.reikaakuzawa.com/" target="_blank" rel="noopener"><?= CHECK_THE_SITE_BTN; ?></a>
+                                <a type="button" href="https://github.com/Reikasan/reservation_manager" target="_blank" rel="noopener"><?= CHECK_THE_CODE_BTN; ?></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="site-details">
-                    <h3 class="site-description">Sample Website with fake Login function.</h3>
+                    <h3 class="site-description"><?= LOGIN_TITLE; ?></h3>
                     <div class="site-link">
-                        <img class="screenshot" src="img/future-partner-screen.jpg" alt="sample website's screenshot">
+                        <img class="screenshot" src="img/future-partner-screen.jpg" alt="<?= LOGIN_SCREENSHOT_ALT; ?>">
                         <div class="used-skills">
-                            <p>Build with <span>HTML</span>, <span>CSS</span>, <span>Bootstrap</span> and  <span>Javascript</span></p>
+                            <p><?= LOGIN_USEDSKILL; ?></p>
                             <div class="btn-container">
-                                <a type="button" href="https://sample-login.reikaakuzawa.com/" target="_blank" rel="noopener">Check the Site</a>
-                                <a type="button" href="https://github.com/Reikasan/sample_login" target="_blank" rel="noopener">Check the Code</a>
+                                <a type="button" href="https://sample-login.reikaakuzawa.com/" target="_blank" rel="noopener"><?= CHECK_THE_SITE_BTN; ?></a>
+                                <a type="button" href="https://github.com/Reikasan/sample_login" target="_blank" rel="noopener"><?= CHECK_THE_CODE_BTN; ?></a>
                             </div>
                         </div>
                     </div>      
                 </div>
                 <div class="site-details">
-                    <h3 class="site-description">Schedule manage app</h3>
+                    <h3 class="site-description"><?= TODO_TITLE; ?></h3>
                     <div class="site-link">
-                        <img class="screenshot" src="img/to-do-screenshot.jpg" alt="sample website screenshot">
+                        <img class="screenshot" src="img/to-do-screenshot.jpg" alt="<?= TODO_SCREENSHOT_ALT; ?>">
                         <div class="used-skills">
-                            <p>Build with <span>HTML</span>, <span>CSS</span>, <span>jQuery</span> and  <span>Javascript</span></p>
+                            <p><?= TODO_USEDSKILL; ?></p>
                             <div class="btn-container">
-                                <a type="button" href="https://todo-list.reikaakuzawa.com/" target="_blank" rel="noopener">Check the Site</a>
-                                <a type="button" href="https://github.com/Reikasan/to-do-list" target="_blank" rel="noopener">Check the Code</a>
+                                <a type="button" href="https://todo-list.reikaakuzawa.com/" target="_blank" rel="noopener"><?= CHECK_THE_SITE_BTN; ?></a>
+                                <a type="button" href="https://github.com/Reikasan/to-do-list" target="_blank" rel="noopener"><?= CHECK_THE_CODE_BTN; ?></a>
                             </div>
                         </div>
                     </div>
@@ -110,8 +125,8 @@
 
         <section id="contact">
             <div>
-                <h1 class="section-title">Contact</h1>
-                <p class="section-lead">Please contact me when you find something interested in!</p>
+                <h1 class="section-title"><?= CONTACT; ?></h1>
+                <p class="section-lead"><?= CONTACT_LEAD; ?></p>
             </div>  
             <div class="form-group">
                 <p id="warningMessage"></p>
@@ -125,10 +140,10 @@
                         <label for="email" class="inputLabel">Email</label>
                     </div>
                     <div class="controls">
-                        <textarea id="comments" class="contactInput" placeholder="Please say something" maxlength="500" required></textarea>
-                        <label for="comments" class="inputLabel">Comments</label>
+                        <textarea id="comments" class="contactInput" placeholder="<?= COMMENT_PLACEHOLDER; ?>" maxlength="500" required></textarea>
+                        <label for="comments" class="inputLabel"><?= COMMENT; ?></label>
                     </div>
-                    <input type="submit" id="submitBtn" value="Submit" class="submit">
+                    <input type="submit" id="submitBtn" value="<?= SUBMIT; ?>" class="submit">
                 </form>
             </div>
         </section>

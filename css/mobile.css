@@ -20,9 +20,6 @@
     nav #logo a {
         font-size: 55px;
     }
-} 
-
-@media screen and (max-width: 1100px) {
     section {
         padding: 50px 0 20px;
     }
@@ -30,7 +27,6 @@
         width: 60vw;
         margin-bottom: 100px;
     }
-
     .site-details:last-child {
         margin-bottom: 50px;
     }
@@ -47,7 +43,7 @@
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 950px) {
     nav {
         display: block;
         height: auto;
@@ -65,9 +61,17 @@
     #navbar-items a {
         margin-top: 10px;
     }
+    nav div#selectLang {
+        position: unset;
+        justify-content: center;
+    }
     .pc {
         left: calc(50vw - 223px);
     }
+}
+
+@media screen and (max-width: 800px) {
+
     section {
         padding: 50px;
     }
@@ -144,7 +148,13 @@
         font-size: 50px;
     }
     #navbar-items li {
-        font-size: 22px;
+        font-size: 18px;
+    }
+    nav #selectLang {
+        font-size: 15px;
+    }
+    nav #selectLang span.hide-by-mobile {
+        display: none;
     }
     .pc {
         transform: scale(.7);

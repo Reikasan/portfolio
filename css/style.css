@@ -86,7 +86,24 @@ nav #logo a {
     left: 0;
 }
 
+nav div#selectLang {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #5a4c4c;
+}
 
+nav div#selectLang form {
+    padding: 8px;
+}
+
+nav div#selectLang form select {
+    padding: 3px 10px;
+    color: #5a4c4c;
+    border-color: #ddd;
+    border-radius: 3px;
+}
 
 /* top */
 .top {
@@ -340,6 +357,10 @@ section {
     text-align: center;
 }
 
+.section-title {
+    text-transform: uppercase;
+}
+
 .section-lead {
     margin-bottom: 50px;
 }
@@ -445,6 +466,10 @@ div.reika .section-lead span {
     background-color: pink;
     color: red;
     padding: 10px;
+}
+
+#contact .warning + label {
+    color: red;
 }
 
 #contact p#warningMessage.show {

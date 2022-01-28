@@ -39,7 +39,13 @@ use PHPMailer\PHPMailer\Exception;
         $mail->Body    = $body;
         
         if($mail->send()) {
-            header("Location: index/thanks");
+            if(!isset($_SESSION['lang']) || empty($_SESSION['lang'])) {
+                $thanksModalUrl = "index.php?thanks";
+            } else {
+                $thanksModalUrl = "index.php".$_SESSION['lang']."&thanks";
+            }
+            
+            header("Location: ".$thanksModalUrl);
         } 
         
     }
@@ -50,7 +56,7 @@ use PHPMailer\PHPMailer\Exception;
         <div class="clear">
         <i class="fas fa-times"></i>
         </div>
-        <h1>Confirmation</h1>
+        <h1><?= CONFIRMATION; ?></h1>
         <form action="" method="post">
             <div class="controls">
                 <input type="text" id="printName" class="contactInput" name="name" readonly>
@@ -62,11 +68,11 @@ use PHPMailer\PHPMailer\Exception;
             </div>
             <div class="controls">
                 <textarea name="comments" id="printComments" class="contactInput" readonly></textarea>
-                <label for="comments" class="inputLabel">Comments</label>
+                <label for="comments" class="inputLabel"><?= COMMENT; ?></label>
             </div>
             <div class="btn-container">
-                <button type="button" id="clearBtn" class="clear">Back to Form</button>
-                <input type="submit" id="sendtBtn" name="submit" value="Send" class="submit">
+                <button type="button" id="clearBtn" class="clear"><?= BACK_TO_FORM; ?></button>
+                <input type="submit" id="sendtBtn" name="submit" value="<?= SUBMIT; ?>" class="submit">
             </div> 
         </form>
     </div>

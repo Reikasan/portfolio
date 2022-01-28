@@ -5,8 +5,8 @@
                 <i class="fas fa-times"></i>
             </a>
         </div>
-        <h1>Thank You!</h1>
-        <p>I will reply you within 3 days.</p>
-        <a type="button" href="index.php">Close</a>
+        <h1><?= THANKS; ?></h1>
+        <p><?= THANKS_MESSAGE; ?></p>
+        <a type="button" href="index.php"><?= CLOSE; ?></a>
     </div>
 </div>
