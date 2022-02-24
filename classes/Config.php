@@ -1,11 +1,4 @@
 <?php
-    // class Config {
-    //     const SMTP_HOST = 'HOST-NAME';
-    //     const SMTP_PORT = PORT_No;
-    //     const SMTP_USER = 'USERNAME';
-    //     const SMTP_PASSWORD = 'PASSWORD';
-    // }
-
     class Config {
         const SMTP_HOST = 'smtp.mailtrap.io';
         const SMTP_PORT = 2525;
