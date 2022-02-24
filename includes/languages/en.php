@@ -15,12 +15,12 @@ const WORK_LEAD = "All original Projects. You can check used Languages and off c
 
 // Bar site
 const BAR_TITLE = "Sample Bar Website with Web Reservation system";
-const BAR_COMMENT = "Linked with Reservation Management Systemsite.";
+const BAR_COMMENT = "Linked with Reservation Management System site.";
 const BAR_USEDSKILL = "Build with <span>HTML</span>, <span>CSS</span>, <span>Javascript</span> and <span>PHP</span>";
 const BAR_SCREENSHOT_ALT = "sample bar website's screenshot";
 
 // Reservation Manager
-const RM_TITLE = "Sample Reservation Management Systemsite";
+const RM_TITLE = "Sample Reservation Management System site";
 const RM_COMMENT = "Linked with Bar Website.";
 const RM_USEDSKILL = "Build with <span>HTML</span>, <span>CSS</span>, <span>Javascript</span> and <span>PHP</span>";
 const RM_SCREENSHOT_ALT = "sample Reservation Manager website's screenshot";
