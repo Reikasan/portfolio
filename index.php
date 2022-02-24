@@ -10,7 +10,21 @@
         if(isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
             echo "<script type='text/javascript>location.reload();</script>";
         }
+    } 
+    
+    if(!isset($_SESSION['lang'])) {
+        $languages = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 
+        if (preg_match('/ja/i', $languages[0])) { 
+            $result = 'ja'; 
+        } elseif (preg_match('/de/i', $languages[0])) { 
+            $result = 'de'; 
+        } else {
+            $result = 'en';
+        }
+        
+        echo $result;
+        $_SESSION['lang'] = $result;
     }
 
     if(isset($_SESSION['lang'])) {
