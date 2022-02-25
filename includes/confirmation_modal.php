@@ -68,7 +68,7 @@ use PHPMailer\PHPMailer\Exception;
             </div>
             <div class="btn-container">
                 <button type="button" id="clearBtn" class="clear"><?= BACK_TO_FORM; ?></button>
-                <input type="submit" id="sendtBtn" name="submit" value="<?= SUBMIT; ?>" class="submit">
+                <input type="submit" id="sendBtn" name="submit" value="<?= SUBMIT; ?>" class="submit">
             </div> 
         </form>
     </div>
