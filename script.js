@@ -27,39 +27,56 @@ const pauseIcons = document.querySelectorAll('.fa-pause');
 const playIcons = document.querySelectorAll('.fa-play');
 const mouseOverScreens = document.querySelectorAll('.mouse-over');
 const slideContainer = document.getElementById('slide-container');
+var i = 1;
+var slideShowTimer = setInterval(slideShow, 4000);
 
     // Add Eventlistener to all tabs 
     tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            // Stop Slideshow and move to selected screenshot
+        tab.addEventListener('click', ()=> {
             stopSlideShow();
-            const selectedTab = document.querySelector('.tab.selected');
-            const selectedScreenshot = document.querySelector('.slide.selected');
-            selectedTab.classList.remove('selected');
-            selectedScreenshot.classList.remove('selected');
+
+            var selectedTab = defineSelectedTab();
+            var selectedScreenshot = defineSelectedScreenshot();
+            removeSelectedClass(selectedTab, selectedScreenshot)
             tab.classList.add('selected');
-
-            const newSelectedTab = document.querySelector('.tab.selected');
-
-            tabs = Array.from(tabs);
-            var selectedIndex = tabs.indexOf(newSelectedTab);
+             
+            var selectedIndex = defineIndexOfSelectedTab();
 
             if(selectedIndex === 0) {
                 screenshots[0].classList.add('selected');
-                var i = 1;
+                i = 1;
             } else if(selectedIndex === 1) {
                 screenshots[1].classList.add('selected');
-                var i = 2;
+                i = 2;
             } else if(selectedIndex === 2) {
                 screenshots[2].classList.add('selected');
-                var i = 3;
+                i = 3;
             } else if(selectedIndex === 3) {
                 screenshots[3].classList.add('selected');
-                var i = 4;
+                i = 4;
             }
-
         });
     });
+
+    // HELPER FUNCTIONS
+    function defineSelectedTab() {
+        return document.querySelector('.tab.selected');
+    }
+    function defineSelectedScreenshot() {
+        return document.querySelector('.slide.selected');
+    }
+
+    function removeSelectedClass(selectedTab, selectedScreenshot) {
+        selectedTab.classList.remove('selected'); 
+        selectedScreenshot.classList.remove('selected');
+    }
+
+    function defineIndexOfSelectedTab() {
+        const newSelectedTab = defineSelectedTab();
+
+        tabs = Array.from(tabs);
+        return tabs.indexOf(newSelectedTab);
+    }
 
     function stopSlideShow() {
         clearInterval(slideShowTimer);
@@ -76,6 +93,7 @@ const slideContainer = document.getElementById('slide-container');
     playIcons.forEach(playIcon => {
         playIcon.removeAttribute('arial-hidden');
         playIcon.addEventListener('click', function() {
+            // i = defineIndexOfSelectedTab()+1;
             slideShowTimer = setInterval(slideShow, 4000);
             slideContainer.classList.add('slider-on');
             changeOperatorIcon();
@@ -84,17 +102,13 @@ const slideContainer = document.getElementById('slide-container');
 
 
     // Auto slideshow
-    var i = 1;
-    var slideShowTimer = setInterval(slideShow, 4000);
-    
     function slideShow(){
         i++;
+        
+        var selectedTab = defineSelectedTab();
+        var selectedScreenshot = defineSelectedScreenshot();
 
-        const selectedScreenshot = document.querySelector('.slide.selected');
-        const selectedTab = document.querySelector('.tab.selected');
-
-        selectedScreenshot.classList.remove('selected');
-        selectedTab.classList.remove('selected');
+        removeSelectedClass(selectedTab, selectedScreenshot);
 
         if(i > screenshots.length) {
             screenshots[0].classList.add('selected');
