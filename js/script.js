@@ -44,7 +44,7 @@ function slideShow(){
         
         i = 1;
     } else {
-        moveToNextScreenshot()
+        moveToNextScreenshot(selectedTab, selectedScreenshot)
     }
 }
 
@@ -153,8 +153,8 @@ function backToFirstScreenshot() {
     tabs[0].classList.add('selected');
 }
 
-function moveToNextScreenshot() {
-    selectedScreenshot.nextElementSibling.classList.add('selected'); //
+function moveToNextScreenshot(selectedTab, selectedScreenshot) {
+    selectedScreenshot.nextElementSibling.classList.add('selected'); 
     selectedTab.nextElementSibling.classList.add('selected');
 }
 
