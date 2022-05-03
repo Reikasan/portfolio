@@ -17,8 +17,8 @@ var scrollDownAndShow = function() {
         icon.classList.add("icon-hide");
     }
 };
-
 window.addEventListener("scroll", scrollDownAndShow);
+
 
 /* SLIDESHOW IN PC */
 const screenshots = document.querySelectorAll('.slide');
@@ -27,124 +27,143 @@ const pauseIcons = document.querySelectorAll('.fa-pause');
 const playIcons = document.querySelectorAll('.fa-play');
 const mouseOverScreens = document.querySelectorAll('.mouse-over');
 const slideContainer = document.getElementById('slide-container');
+var i = 1;
+var slideShowTimer = setInterval(slideShow, 4000);
 
-    // Add Eventlistener to all tabs 
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            // Stop Slideshow and move to selected screenshot
-            stopSlideShow();
-            const selectedTab = document.querySelector('.tab.selected');
-            const selectedScreenshot = document.querySelector('.slide.selected');
-            selectedTab.classList.remove('selected');
-            selectedScreenshot.classList.remove('selected');
-            tab.classList.add('selected');
-
-            const newSelectedTab = document.querySelector('.tab.selected');
-
-            tabs = Array.from(tabs);
-            var selectedIndex = tabs.indexOf(newSelectedTab);
-
-            if(selectedIndex === 0) {
-                screenshots[0].classList.add('selected');
-                var i = 1;
-            } else if(selectedIndex === 1) {
-                screenshots[1].classList.add('selected');
-                var i = 2;
-            } else if(selectedIndex === 2) {
-                screenshots[2].classList.add('selected');
-                var i = 3;
-            } else if(selectedIndex === 3) {
-                screenshots[3].classList.add('selected');
-                var i = 4;
-            }
-
-        });
-    });
-
-    function stopSlideShow() {
-        clearInterval(slideShowTimer);
-        slideContainer.classList.remove('slider-on');
-        changeOperatorIcon();
-    }
-
-    // Add Eventlistener to all Pause/Play Icons
-    pauseIcons.forEach(pauseIcon => {
-        pauseIcon.removeAttribute('arial-hidden');
-        pauseIcon.addEventListener('click', stopSlideShow);
-    });
-
-    playIcons.forEach(playIcon => {
-        playIcon.removeAttribute('arial-hidden');
-        playIcon.addEventListener('click', function() {
-            slideShowTimer = setInterval(slideShow, 4000);
-            slideContainer.classList.add('slider-on');
-            changeOperatorIcon();
-        });
-    });
-
-
-    // Auto slideshow
-    var i = 1;
-    var slideShowTimer = setInterval(slideShow, 4000);
+// Auto slideshow
+function slideShow(){
+    i++;
     
-    function slideShow(){
-        i++;
+    var selectedTab = defineSelectedTab();
+    var selectedScreenshot = defineSelectedScreenshot();
 
-        const selectedScreenshot = document.querySelector('.slide.selected');
-        const selectedTab = document.querySelector('.tab.selected');
+    removeSelectedClass(selectedTab, selectedScreenshot);
 
-        selectedScreenshot.classList.remove('selected');
-        selectedTab.classList.remove('selected');
+    if(i > screenshots.length) {
+        backToFirstScreenshot()
+        
+        i = 1;
+    } else {
+        moveToNextScreenshot()
+    }
+}
 
-        if(i > screenshots.length) {
+// Add Eventlistener to all tabs 
+tabs.forEach(tab => {
+    tab.addEventListener('click', ()=> {
+        stopSlideShow();
+
+        var selectedTab = defineSelectedTab();
+        var selectedScreenshot = defineSelectedScreenshot();
+        removeSelectedClass(selectedTab, selectedScreenshot)
+        tab.classList.add('selected');
+            
+        var selectedIndex = defineIndexOfSelectedTab();
+
+        if(selectedIndex === 0) {
             screenshots[0].classList.add('selected');
-            tabs[0].classList.add('selected');
-            
             i = 1;
-        } else {
-            selectedScreenshot.nextElementSibling.classList.add('selected');
-            selectedTab.nextElementSibling.classList.add('selected');
+        } else if(selectedIndex === 1) {
+            screenshots[1].classList.add('selected');
+            i = 2;
+        } else if(selectedIndex === 2) {
+            screenshots[2].classList.add('selected');
+            i = 3;
+        } else if(selectedIndex === 3) {
+            screenshots[3].classList.add('selected');
+            i = 4;
         }
+    });
+});
+
+// Add Eventlistener to all Pause/Play Icons
+pauseIcons.forEach(pauseIcon => {
+    pauseIcon.removeAttribute('arial-hidden');
+    pauseIcon.addEventListener('click', stopSlideShow);
+});
+
+playIcons.forEach(playIcon => {
+    playIcon.removeAttribute('arial-hidden');
+    playIcon.addEventListener('click', function() {
+        slideShowTimer = setInterval(slideShow, 4000);
+        slideContainer.classList.add('slider-on');
+        changeOperatorIcon();
+    });
+});
+
+// Show Pause or Play Icon by hover screen
+slideContainer.addEventListener('mouseover', function() {
+    mouseOverScreens.forEach(screen => {
+        screen.classList.add('show');
+    });
+    changeOperatorIcon();
+});
+
+slideContainer.addEventListener('mouseleave', function() {
+    mouseOverScreens.forEach(screen => {
+        screen.classList.remove('show');
+    });
+    changeOperatorIcon();
+});
+
+
+function changeOperatorIcon() {
+    if(slideContainer.classList.contains('slider-on')) {
+        // show PAUSE icon
+        pauseIcons.forEach(pauseIcon => {
+            pauseIcon.classList.remove('hide');
+        });
+        playIcons.forEach(playIcon => {
+            playIcon.classList.add('hide');
+        });
+        
+    } else {
+        // show PLAY icon
+        pauseIcons.forEach(pauseIcon => {
+            pauseIcon.classList.add('hide');
+        });
+        playIcons.forEach(playIcon => {
+            playIcon.classList.remove('hide');
+        });
     }
+}
 
-    // Show Pause or Play Icon by hover screen
-    slideContainer.addEventListener('mouseover', function() {
+// HELPER FUNCTIONS
+function defineSelectedTab() {
+    return document.querySelector('.tab.selected');
+}
+function defineSelectedScreenshot() {
+    return document.querySelector('.slide.selected');
+}
 
-        mouseOverScreens.forEach(screen => {
-            screen.classList.add('show');
-        });
-        changeOperatorIcon();
-    });
+function removeSelectedClass(selectedTab, selectedScreenshot) {
+    selectedTab.classList.remove('selected'); 
+    selectedScreenshot.classList.remove('selected');
+}
 
-    slideContainer.addEventListener('mouseleave', function() {
+function defineIndexOfSelectedTab() {
+    const newSelectedTab = defineSelectedTab();
 
-        mouseOverScreens.forEach(screen => {
-            screen.classList.remove('show');
-        });
-        changeOperatorIcon();
-    });
+    tabs = Array.from(tabs);
+    return tabs.indexOf(newSelectedTab);
+}
+
+function backToFirstScreenshot() {
+    screenshots[0].classList.add('selected');
+    tabs[0].classList.add('selected');
+}
+
+function moveToNextScreenshot() {
+    selectedScreenshot.nextElementSibling.classList.add('selected'); //
+    selectedTab.nextElementSibling.classList.add('selected');
+}
+
+function stopSlideShow() {
+    clearInterval(slideShowTimer);
+    slideContainer.classList.remove('slider-on');
+    changeOperatorIcon();
+}
     
-
-    function changeOperatorIcon() {
-        if(slideContainer.classList.contains('slider-on')) {
-            // show PAUSE icon
-            pauseIcons.forEach(pauseIcon => {
-                pauseIcon.classList.remove('hide');
-            });
-            playIcons.forEach(playIcon => {
-                playIcon.classList.add('hide');
-            });
-            
-        } else {
-            // show PLAY icon
-            pauseIcons.forEach(pauseIcon => {
-                pauseIcon.classList.add('hide');
-            });
-            playIcons.forEach(playIcon => {
-                playIcon.classList.remove('hide');
-            });
-        }
-    }
 
 /* CONFIRMATION MODAL */
 const submitBtn = document.getElementById('submitBtn');
