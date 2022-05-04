@@ -14,6 +14,10 @@ Auto Slideshow with fake PC screen as a showcase of my works.
 * Click screen to stop and start slideshow.
 * By Background, stop slideshow automatically.
 
-#### 3. Responsible for all device
+#### 3. Page top icon
+It doesn't show until you scroll down.
+Because you don't need it yet, right?
+
+#### 4. Responsible for all device
 Off course, its responsible for Mobile and Tablet.
 
