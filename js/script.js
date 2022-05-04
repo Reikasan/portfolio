@@ -30,6 +30,19 @@ const slideContainer = document.getElementById('slide-container');
 var i = 1;
 var slideShowTimer = setInterval(slideShow, 4000);
 
+
+document.addEventListener('visibilitychange', ()=> {
+    if(document.visibilityState === 'visible') {
+        startSlideShowAgain();
+        return;
+    }
+
+    if(document.visibilityState === 'hidden') {
+        stopSlideShow();
+        return;
+    }
+});
+
 // Auto slideshow
 function slideShow(){
     i++;
@@ -41,7 +54,6 @@ function slideShow(){
 
     if(i > screenshots.length) {
         backToFirstScreenshot()
-        
         i = 1;
     } else {
         moveToNextScreenshot(selectedTab, selectedScreenshot)
@@ -84,11 +96,7 @@ pauseIcons.forEach(pauseIcon => {
 
 playIcons.forEach(playIcon => {
     playIcon.removeAttribute('arial-hidden');
-    playIcon.addEventListener('click', function() {
-        slideShowTimer = setInterval(slideShow, 4000);
-        slideContainer.classList.add('slider-on');
-        changeOperatorIcon();
-    });
+    playIcon.addEventListener('click', startSlideShowAgain);
 });
 
 // Show Pause or Play Icon by hover screen
@@ -161,6 +169,12 @@ function moveToNextScreenshot(selectedTab, selectedScreenshot) {
 function stopSlideShow() {
     clearInterval(slideShowTimer);
     slideContainer.classList.remove('slider-on');
+    changeOperatorIcon();
+}
+
+function startSlideShowAgain() {
+    slideShowTimer = setInterval(slideShow, 4000);
+    slideContainer.classList.add('slider-on');
     changeOperatorIcon();
 }
     
