@@ -23,8 +23,8 @@
                             <div class="filter"></div>
                             <div class="operator-container">
                                 <div class="operator">
-                                    <i class="fas fa-pause"></i>
-                                    <i class="fas fa-play"></i>
+                                    <i title="pause slideshow" class="fas fa-pause"></i>
+                                    <i title="start slideshow" class="fas fa-play"></i>
                                 </div>
                                 <a type="button" href="https://sample-bar.reikaakuzawa.com/" class="site-link"  target="_blank" rel="noopener">
                                     <?= CHECK_THE_SITE_BTN; ?>

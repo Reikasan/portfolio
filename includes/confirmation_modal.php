@@ -35,7 +35,7 @@ use PHPMailer\PHPMailer\Exception;
         
         //Content
         $mail->isHTML(true);                                 
-        $mail->Subject = 'Inquiery from Website';
+        $mail->Subject = 'Inquiry from Website';
         $mail->Body    = $body;
         
         if($mail->send()) {

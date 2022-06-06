@@ -103,7 +103,7 @@
                             <p><?= RM_USEDSKILL; ?></p>
                             <div class="btn-container">
                                 <a type="button" href="https://reservation-manager.reikaakuzawa.com/" target="_blank" rel="noopener"><?= CHECK_THE_SITE_BTN; ?></a>
-                                <a type="button" href="https://github.com/Reikasan/reservation_manager" target="_blank" rel="noopener"><?= CHECK_THE_CODE_BTN; ?></a>
+                                <a type="button" href="https://github.com/Reikasan/reservation_manager_with_OOP" target="_blank" rel="noopener"><?= CHECK_THE_CODE_BTN; ?></a>
                             </div>
                         </div>
                     </div>
